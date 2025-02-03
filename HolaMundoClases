@@ -1,0 +1,37 @@
+#pragma once
+#include <string>
+using namespace std;
+
+class Mensaje
+{
+private:
+	//Datos
+	string mens;
+public:
+	Mensaje();
+	void mostrar();
+};
+
+------------------------------
+#include "Mensaje.h"
+#include <iostream>
+
+using namespace std;
+//Cosntructor - metodos
+Mensaje::Mensaje() {
+	mens = "Soy Franco Tardio";
+}
+void Mensaje::mostrar() {
+	cout << "El mensaje es: " << mens;
+}
+
+------------------------------
+#include <iostream>
+#include "Mensaje.h"
+
+using namespace std;
+
+int main() {
+	Mensaje mensajito;
+	mensajito.mostrar();
+}
