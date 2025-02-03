@@ -1,0 +1,36 @@
+
+#pragma once
+class Operaciones
+{
+private:
+	float a;
+	float b;
+	float suma;
+public:
+	//metodos / funciones
+	Operaciones();
+	void Suma();
+};
+---------------------------------
+#include "Operaciones.h"
+#include <iostream>
+using namespace std;
+Operaciones::Operaciones() {
+	a = 4;
+	b = 5.3;
+}
+void Operaciones::Suma() {
+	suma = a + b;
+	cout << "la suma es: " << suma;
+}
+---------------------------------
+#include <iostream>
+#include "Operaciones.h"
+
+using namespace std;
+
+int main() {
+	Operaciones Sumita;
+	Sumita.Suma();
+
+}
