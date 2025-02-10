@@ -1,0 +1,188 @@
+------------------------------------Main-----------------------------------
+#include <iostream>
+#include "Triangulo.h"
+#include "Cuadrado.h"
+#include "Circulo.h"
+
+using namespace std;
+
+void Triang();
+void Cuadra();
+void Circul();
+
+int main() {
+	int op;
+	do {
+		cout << "-------Menu--------" << endl;
+		cout << "1.Calcular el area de una triangulo" << endl;
+		cout << "2.Calcular el area de un cuadrado" << endl;
+		cout << "3.Calcular el area de un circulo" << endl;
+		cout << "0.Salir" << endl;
+		cin >> op;
+		switch (op)
+		{
+		case 1:
+			Triang();
+			break;
+		case 2:
+			Cuadra();
+			break;
+		case 3:
+			Circul();
+			break;
+		case 0:
+			cout << "	Saliendo..." << endl;
+			break;
+		default:
+			cout << "	opcion invalida" << endl;
+			break;
+		}
+	} while (op!=0);
+}
+
+void Triang(){
+	float base, altura;
+	do {
+		cout << "ingrese la base ";
+		cin >> base;
+	} while (base < 1);
+	do {
+		cout << "ingrese la altura ";
+		cin >> altura;
+	} while (altura < 1);
+
+	Triangulo Triangulito;
+	Triangulito.setAltura(altura);
+	Triangulito.setBase(base);
+	cout << "El area del triangulo es: " << Triangulito.calcAreaTriang()<<endl;
+}
+
+void Cuadra() {
+	float lado;
+	do {
+		cout << "ingrese el lado ";
+		cin >> lado;
+	} while (lado < 1);
+	Cuadrado Cuadradito;
+	Cuadradito.setLado(lado);
+	cout<<"El area del cuadrado es: "<< Cuadradito.calcAreaCuad()<<endl;
+}
+
+void Circul() {
+	float radio;
+	do {
+		cout << "ingrese el radio ";
+		cin >> radio;
+	} while (radio < 1);
+	Circulo Circulito;
+	Circulito.setRadio(radio);
+	cout << "El area del cuadrado es: " << Circulito.calcAreaCirc() << endl;
+}
+
+------------------------------Triangulo---------------------------------------
+#pragma once
+#include <iostream>
+using namespace std;
+class Triangulo
+{
+
+private:
+	float base;
+	float altura;
+public:
+	Triangulo();
+	void setAltura(float altura_1);
+	void setBase(float base_1);
+	float getAltura();
+	float getBase();
+	float calcAreaTriang();
+};
+
+-----------------------------------------------------------------------------
+#include "Triangulo.h"
+#include <iostream>
+
+using namespace std;
+
+Triangulo::Triangulo() {}
+void Triangulo::setAltura(float altura_1) {
+	altura = altura_1;
+}
+void Triangulo::setBase(float base_1) {
+	base = base_1;
+}
+float Triangulo::getAltura() {
+	return altura;
+}
+float Triangulo::getBase() {
+	return base;
+}
+float Triangulo::calcAreaTriang(){
+	return (base * altura) / 2;
+}
+
+------------------------------Cuadrado---------------------------------------
+#pragma once
+#include <iostream>
+
+using namespace std;
+class Cuadrado
+{
+private:
+	float lado;
+public :
+	Cuadrado();
+	void setLado(float lado_1);
+	float getLado();
+	float calcAreaCuad();
+};
+
+-------------------------------------------------------------------------
+#include "Cuadrado.h"
+#include <iostream>
+
+using namespace std;
+
+Cuadrado::Cuadrado(){}
+void Cuadrado::setLado(float lado_1) {
+	lado = lado_1;
+}
+float Cuadrado::getLado() {
+	return lado;
+}
+float Cuadrado::calcAreaCuad() {
+	return lado * lado;
+}
+--------------------------------Circulo---------------------------------------
+#include <iostream>
+#pragma once
+
+using namespace std;
+class Circulo
+{
+private:
+	float radio;
+public:
+	Circulo();
+	void setRadio(float base_1);
+	float getRadio();
+	float calcAreaCirc();
+};
+
+-------------------------------------------------------------------------------
+#include "Circulo.h"
+#include <iostream>
+
+using namespace std;
+
+Circulo::Circulo(){}
+void Circulo::setRadio(float radio_1) {
+	radio = radio_1;
+}
+float Circulo::getRadio() {
+	return radio;
+}
+float Circulo::calcAreaCirc() {
+	return 3.1415 * radio * radio;
+}
+---------------------------------------Fin------------------------------------------
