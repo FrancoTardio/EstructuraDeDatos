@@ -1,0 +1,85 @@
+#include <iostream>
+#include "Node.h"
+using namespace std;
+
+class LinkedList {
+private:
+	Node* first;
+public:
+	LinkedList(){ 
+		first = NULL; 
+	};
+	LinkedList(int A[], int n);
+	//~LinkedList();
+	void display();
+	/*void insert(int A[], int n);
+	void remove(int A[], int n);
+	void search(int A[], int n);*/
+	int lenght();
+	int mayor();
+	int menor();
+};
+LinkedList::LinkedList(int A[], int n) {
+	Node* t, * last;
+	first = new Node();
+	first->data = A[0];
+	first->sig = NULL;
+	last = first;
+	for (int i = 1; i < n; i++) {
+		t = new Node();
+		t->data = A[i];
+		t->sig = NULL;
+		last->sig = t;
+		last = t;
+		}
+	}
+void LinkedList::display() {
+	for (Node* i=first; i != NULL; i = i->sig) {
+		cout << i->data << endl;
+	}
+}
+int LinkedList::lenght(){
+	int lenght = 0;
+	for (Node* i = first; i != NULL; i = i->sig) {
+		lenght++;
+	}
+	return lenght;
+}
+int LinkedList::mayor() {
+	int may=first->data ;
+	for (Node* i = first; i != NULL; i = i->sig) {
+		if (i->data > may)
+			may = i->data;
+	}
+	return may;
+}
+int LinkedList::menor() {
+	int men = first->data;
+	for (Node* i = first; i != NULL; i = i->sig) {
+		if (i->data < men)
+			men = i->data;
+	}
+	return men;
+}
+int main() {
+	int A[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int n = sizeof(A) / sizeof(A[0]);
+	LinkedList l(A, n);
+	l.display();
+	//l.insert(A, n
+	cout<<"Hay "<<l.lenght()<<" Nodos en la lista"<<endl;
+	cout << "Mayor " << l.mayor() << " Nodo en la lista" << endl;
+	cout << "Menor " << l.menor() << " Nodo en la lista" << endl;
+	Node* first = new Node;
+	Node* p = new Node;
+	first->data = 10;
+	first->sig = NULL;
+	p->data = 20;
+	p->sig = NULL;
+	cout << first << endl;
+	cout << first->sig << endl;
+	cout << p << endl;
+	cout << p->sig << endl;
+	first->sig = p;
+	cout << first->sig << endl;
+}
