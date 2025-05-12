@@ -1,0 +1,93 @@
+#pragma once
+#include "Dato.h"
+class Nodo
+{
+private:
+	Dato Data;
+	Nodo* sig;
+public:
+	Nodo();
+	Nodo* getPuntero();
+	void setPuntero(Nodo* p);
+	Dato getDato();
+	void setDato(Dato d);
+	static void Encolar(Nodo*& inicio, Nodo*& fin);
+	static void Desencolar(Nodo*& inicio);
+	Nodo* BuscarElemento(Nodo*& inicio, double codigo);
+	void EliminarElemento(Nodo*& inicio, double codigo);
+};
+
+#include "Nodo.h"
+Nodo::Nodo() {
+
+}
+Nodo* Nodo::getPuntero() {
+	return sig;
+}
+void Nodo::setPuntero(Nodo* p) {
+	sig = p;
+}
+Dato Nodo::getDato() {
+	return Data;
+}
+void Nodo::setDato(Dato d) {
+	Data = d;
+}
+void Nodo::Encolar(Nodo*& inicio, Nodo*& fin) {
+	Nodo* t = new Nodo;
+	if (inicio == NULL)
+		inicio = fin = t;
+	else
+		fin = inicio->getPuntero();
+}
+void Nodo::Desencolar(Nodo*& inicio) {
+
+}
+Nodo* Nodo::BuscarElemento(Nodo*& inicio, double codigo) {
+
+}
+void Nodo::EliminarElemento(Nodo*& inicio, double codigo) {
+
+}
+
+#pragma once
+#include <string>
+using namespace std;
+class Dato{
+private:
+	double Codigo;
+	string Nombre;
+	string Carrera;
+public:
+	Dato();
+	double getCodigo();
+	void setCodigo(double codigo);
+	string getNombre();
+	void setNombre(string nombre);
+	string getCarrera();
+	void setCarrera(string carrera);
+};
+
+
+#include "Dato.h"
+Dato::Dato() {
+
+}
+double Dato::getCodigo() {
+	return Codigo;
+}
+void Dato::setCodigo(double codigo) {
+	Codigo = codigo;
+}
+string Dato::getNombre() {
+	return Nombre;
+}
+void Dato::setNombre(string nombre) {
+	Nombre = nombre;
+}
+string Dato::getCarrera() {
+	return Carrera;
+}
+void Dato::setCarrera(string carrera) {
+	Carrera = carrera;
+}
